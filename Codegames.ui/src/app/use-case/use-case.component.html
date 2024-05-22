@@ -1,0 +1,60 @@
+<div *ngIf="showMessage">
+    <div class="wk-notification wk-is-open wk-notification-success" role="alert">
+        <span class="wk-icon-filled-check-circle" aria-hidden="true"></span>
+        <p class="wk-notification-title">Success</p>
+        <p class="wk-notification-content">
+            Successfully downloaded the Use Case Document
+        </p>
+        <button class="wk-button wk-button-icon wk-button-close wk-notification-dismiss" type="button"
+            (click)="dismissAlert()">
+            <span class="wk-icon-filled-close" aria-hidden="true"></span>
+            <span class="wk-sr-only">Dismiss alert</span>
+        </button>
+    </div>
+</div>
+
+<div *ngIf="showErrorMEssage">
+    <div class="wk-notification wk-is-open wk-notification-error" role="alert">
+        <span class="wk-icon-filled-stop-sign" aria-hidden="true"></span>
+        <p class="wk-notification-title">Error</p>
+        <p class="wk-notification-content">
+            Error downloading Use Case Document.
+        </p>
+        <button class="wk-button wk-button-icon wk-button-close wk-notification-dismiss" type="button"
+            (click)="dismissAlert()">
+            <span class="wk-icon-filled-close" aria-hidden="true"></span>
+            <span class="wk-sr-only">Dismiss alert</span>
+        </button>
+    </div>
+</div>
+
+<form (ngSubmit)="downloadUseCase()">
+    <!--  -->
+    <div class="wk-docs-example-card-container">
+        <section class="wk-card-container wk-card-container-h-dividers">
+            <header class="wk-card-container-header">
+                <h3>GenMinds Assembly AI</h3>
+            </header>
+            <div class="wk-card-container-body" [formGroup]="form">
+                <div class="wk-card-container-body-cell">
+                    <div>
+                        <div class="wk-field wk-field-secondary">
+                            <div class="wk-field-header">
+                                <label class="wk-field-label" for="input">Enter Use Case Prompt</label>
+                            </div>
+                            <div class="wk-field-body">
+                                <input type="text" id="input" name="input" placeholder="Enter Use Case Prompt"
+                                    class="wk-field-input" formControlName="input" required>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="wk-button wk-button-icon-left">
+                                <span class="wk-icon-download-line" aria-hidden="true"></span>Download Use Case
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</form>

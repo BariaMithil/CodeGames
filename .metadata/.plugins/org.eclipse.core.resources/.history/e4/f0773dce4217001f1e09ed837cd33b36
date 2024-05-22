@@ -1,0 +1,44 @@
+package com.example.CodeGames.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.example.CodeGames.Dto.Request;
+import com.example.CodeGames.Dto.Response;
+
+@RestController
+@RequestMapping("/web/create")
+public class ChatGptController {
+
+
+    @Value("${openai.endpoint}")
+    private String endpoint;
+//    @Autowired
+//    private OpenAiChatClient openAiChatClient;
+
+    @Value("${openai.api.key}")
+    private String apiKey;
+    
+    @Autowired
+    private RestTemplate restTemplate;
+
+	/*
+	 * @GetMapping("/useCase") public void createUseCase(@RequestParam("prompt")
+	 * String prompt){ Request request = new Request("gpt-3.5-turbo",prompt);
+	 * List<Message> messages = new ArrayList<>(); Prompt prompts = new
+	 * Prompt(prompt); ChatResponse res = openAiChatClient.call(prompts);
+	 * System.out.println(res); }
+	 */
+    
+    @GetMapping("/getUseCase")
+    public void getUseCase(@RequestParam("prompt") String prompt){
+        Request request = new Request("gpt-3.5-turbo",prompt);
+        Response res = restTemplate.postForObject(endpoint, request, Response.class);
+        System.out.println(res);
+    }
+}

@@ -1,0 +1,40 @@
+<head>
+    <!-- @wk/fundamentals CSS -->
+    <link rel="stylesheet" href="https://cdn.wolterskluwer.io/wk/fundamentals/2.x.x/all.min.css" />
+
+    <!-- @wk/components CSS -->
+    <link rel="stylesheet" href="https://cdn.wolterskluwer.io/wk/components/2.x.x/all.min.css" />
+
+    <!-- @wk/grid CSS -->
+    <link rel="stylesheet" href="https://cdn.wolterskluwer.io/wk/grid/2.x.x/grid.min.css" />
+    <!-- polyfills for Chrome, FF, and Safari -->
+    <script src="https://unpkg.com/@webcomponents/custom-elements@^1.2.4/src/native-shim"></script>
+    <!-- for Edge -->
+    <script src="https://unpkg.com/@webcomponents/custom-elements@^1.2.4"></script>
+    <!-- @wk/components JS -->
+    <script src="https://cdn.wolterskluwer.io/wk/components/2.x.x/bundle.js"></script>
+</head>
+<div class="wk-docs-research-example">
+    <!-- Artificial wrapper for auto-hiding functionality, should be removed from final usage -->
+    <header class="wk-banner wk-banner-extra-margins" role="banner">
+        <div class="wk-banner-container">
+            <a class="wk-logo-container" href="javascript:void(0)" title="Go to Wolters Kluwer home page">
+                <img class="wk-logo wk-logo-medium"
+                    src="https://cdn.wolterskluwer.io/wk/fundamentals/2.x.x/logo/assets/white-wheel-medium.svg"
+                    alt="Go to Wolters Kluwer home page" />
+                <img class="wk-logo wk-logo-small"
+                    src="https://cdn.wolterskluwer.io/wk/fundamentals/2.x.x/logo/assets/wheel-small.svg"
+                    alt="Go to Wolters Kluwer home page" />
+            </a>
+            <div class="wk-banner-content">
+                <div class="wk-banner-left-content">
+                    <div class="wk-banner-product-name">Wolters Kluwer</div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div><!-- Tabs -->
+        <app-tabs></app-tabs>
+    </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,51 @@
+package com.example.CodeGames.Dto;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.ai.chat.messages.Media;
+import org.springframework.ai.chat.messages.MessageType;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Message{
+    private String role;
+    private String content;
+    
+	public Message(String role, String content) {
+		super();
+		this.role = role;
+		this.content = content;
+	}
+
+//	@Override
+//	public String getContent() {
+//		// TODO Auto-generated method stub
+//		return this.content;
+//	}
+//
+//	@Override
+//	public List<Media> getMedia() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public Map<String, Object> getProperties() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public MessageType getMessageType() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+    
+    
+}

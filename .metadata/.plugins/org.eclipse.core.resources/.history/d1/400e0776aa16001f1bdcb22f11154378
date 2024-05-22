@@ -1,0 +1,22 @@
+package com.example.CodeGames.Dto;
+
+import lombok.*;
+
+import java.util.List;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+public class Response {
+    private List<Choice> choices;
+
+    @Getter
+    @Setter
+    public static class Choice{
+        private String message;
+        private Integer index;
+    }
+}
+

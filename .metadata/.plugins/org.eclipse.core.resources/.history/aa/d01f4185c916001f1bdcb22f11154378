@@ -1,0 +1,21 @@
+package com.example.CodeGames.Dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Message{
+    private String role;
+    private String content;
+    
+	public Message(String role, String content) {
+		super();
+		this.role = role;
+		this.content = content;
+	}
+    
+    
+}

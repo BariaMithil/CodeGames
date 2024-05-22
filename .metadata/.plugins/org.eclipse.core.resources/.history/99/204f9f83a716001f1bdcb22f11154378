@@ -1,0 +1,4 @@
+spring.application.name=CodeGames
+openai.api.key=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
+openai.endpoint=https://api.openai.com/v1/completions
+#server.port=8585

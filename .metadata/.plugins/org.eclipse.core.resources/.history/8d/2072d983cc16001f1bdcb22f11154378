@@ -1,0 +1,20 @@
+package com.example.CodeGames.Dto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+public class Request {
+    private String model = "gtp-3.5-turbo";
+    private List<Message> messages;
+
+    public Request(String model, String prompt) {
+        this.model = model;
+        this.messages = new ArrayList<>();
+        this.messages.add(new Message("user",prompt));
+    }
+}

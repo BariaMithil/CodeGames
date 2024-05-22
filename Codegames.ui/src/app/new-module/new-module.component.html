@@ -1,0 +1,117 @@
+<div *ngIf="showMessage">
+    <div class="wk-notification wk-is-open wk-notification-success" role="alert">
+        <span class="wk-icon-filled-check-circle" aria-hidden="true"></span>
+        <p class="wk-notification-title">Success</p>
+        <p class="wk-notification-content">
+            Successfully downloaded the Use Case Document
+        </p>
+        <button class="wk-button wk-button-icon wk-button-close wk-notification-dismiss" type="button"
+            (click)="dismissAlert()">
+            <span class="wk-icon-filled-close" aria-hidden="true"></span>
+            <span class="wk-sr-only">Dismiss alert</span>
+        </button>
+    </div>
+</div>
+
+<div *ngIf="showErrorMEssage">
+    <div class="wk-notification wk-is-open wk-notification-error" role="alert">
+        <span class="wk-icon-filled-stop-sign" aria-hidden="true"></span>
+        <p class="wk-notification-title">Error</p>
+        <p class="wk-notification-content">
+            Error downloading Use Case Document.
+        </p>
+        <button class="wk-button wk-button-icon wk-button-close wk-notification-dismiss" type="button"
+            (click)="dismissAlert()">
+            <span class="wk-icon-filled-close" aria-hidden="true"></span>
+            <span class="wk-sr-only">Dismiss alert</span>
+        </button>
+    </div>
+</div>
+
+<form (ngSubmit)="downloadUseCase()">
+    <!--  -->
+    <div class="wk-docs-example-card-container">
+        <section class="wk-card-container wk-card-container-h-dividers">
+            <header class="wk-card-container-header">
+                <h3>GenMinds Assembly AI</h3>
+            </header>
+            <div class="wk-card-container-body" [formGroup]="form">
+                <div class="wk-card-container-body-cell">
+                    <div>
+                        <div class="wk-field wk-field-secondary"> <!-- Checkbox for drop down -->
+                            <div role="group" class="wk-field wk-field-small wk-field-horizontal-choices docs-checkbox-radio" aria-labelledby="group-id-2">
+                                <div class="wk-field-header">
+                                    <label class="wk-field-label" id="drop-check">Are there any dropdowns?</label>
+                                </div>
+                                <div class="wk-field-body">
+                                    <label class="wk-field-choice-label">
+                                        <input type="radio" name="horizontal-group" value="Yes" class="wk-field-choice" (change)="dropCheck($event)">
+                                        <span class="wk-field-choice-text">Yes</span>
+                                    </label>
+                                </div>
+                                <div class="wk-field-body">
+                                    <label class="wk-field-choice-label">
+                                        <input type="radio" name="horizontal-group" value="No" class="wk-field-choice" (change)="dropCheck($event)">
+                                        <span class="wk-field-choice-text">No</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- If yes then forward -->
+                            <div *ngIf="drop">
+                                <div class="wk-field-header">
+                                    <label class="wk-field-label" for="input">Enter dropdown names separated by commas</label>
+                                </div>
+                                <div class="wk-field-body">
+                                    <input type="text" id="input" name="input" placeholder="Enter dropdown values separated by commas"
+                                        class="wk-field-input" formControlName="dropdown" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wk-field wk-field-secondary"> <!-- Checkbox for button submit -->
+                            <div role="group" class="wk-field wk-field-small wk-field-horizontal-choices docs-checkbox-radio" aria-labelledby="group-id-2">
+                                <div class="wk-field-header">
+                                    <label class="wk-field-label" id="button-check">Are there any buttons?</label>
+                                </div>
+                                <div class="wk-field-body">
+                                    <label class="wk-field-choice-label">
+                                        <input type="radio" name="horizontal-group" value="ButYes" class="wk-field-choice" (change)="buttCheck($event)">
+                                        <span class="wk-field-choice-text">Yes</span>
+                                    </label>
+                                </div>
+                                <div class="wk-field-body">
+                                    <label class="wk-field-choice-label">
+                                        <input type="radio" name="horizontal-group" value="ButNo" class="wk-field-choice" (change)="buttCheck($event)">
+                                        <span class="wk-field-choice-text">No</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div *ngIf="butt">
+                                <div class="wk-field-header">
+                                    <label class="wk-field-label" for="input">Enter button names separated by commas</label>
+                                </div>
+                                <div class="wk-field-body">
+                                    <input type="text" id="input" name="input" placeholder="Enter button values separated by commas"
+                                        class="wk-field-input" formControlName="buttons" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wk-field wk-field-secondary">
+                            <div class="wk-field-header">
+                                <label class="wk-field-label" for="input">Enter Use Case Prompt</label>
+                            </div>
+                            <div class="wk-field-body">
+                                <input type="text" id="input" name="input" placeholder="Enter Use Case Prompt"
+                                    class="wk-field-input" formControlName="input" required>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="wk-button wk-button-icon-left">
+                                <span class="wk-icon-download-line" aria-hidden="true"></span>Download Use Case
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</form>

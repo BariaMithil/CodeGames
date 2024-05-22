@@ -1,0 +1,25 @@
+package com.example.CodeGames.Dto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+public class Request {
+	@JsonProperty("model")
+    private String model = "text-embedding-3-large";
+//    "gtp-3.5-turbo";
+	@JsonProperty("messages")
+    private List<Message> messages;
+
+    public Request(String model, String prompt) {
+        this.model = model;
+        this.messages = new ArrayList<>();
+        this.messages.add(new Message("user",prompt));
+    }
+}
